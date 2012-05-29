@@ -1,0 +1,39 @@
+
+class RPHTML::Element::Form::Error
+  include RPHTML::Abstract::Element  
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "span"
+  Type          = "error"
+  
+  attr_accessor :for_input
+  
+  def initialize( parent_view = nil, for_input = nil )
+    super( parent_view )
+    self.for_input  = for_input
+  end
+  
+  def css_id
+    return self.for_input.css_id
+  end
+  
+  def css_class
+    return self.class::Type
+  end
+  
+  def xml_node_creation_actions( self_xml_node )
+    super( self_xml_node )
+    if self.for_input
+      if self.for_input.css_id
+        # I don't see any reason why a "for" flag should be a problem?
+        self_xml_node[ 'for' ] = self.for_input.css_id
+      end
+      self_xml_node.content = self.for_input.error_message
+    end
+  end
+  
+end

@@ -1,0 +1,32 @@
+class RPHTML::Element::Text::Header
+  include RPHTML::Abstract::Element  
+
+  attr_accessor :size
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "h"
+  
+  ################
+  #  initialize  #
+  ################
+
+  def initialize( parent_view = nil, name = nil )
+    super( parent_view, name )
+    # Since we can change the size of any header via CSS, the # doesn't correspond concretely
+    # So 3 seems like an appropriate average size given that there are 7 total
+    self.size   = 3
+  end
+
+  ##########
+  #  tags  #
+  ##########
+  
+  def tag
+    return self.class::Tag.to_s + self.size.to_s
+  end
+  
+end

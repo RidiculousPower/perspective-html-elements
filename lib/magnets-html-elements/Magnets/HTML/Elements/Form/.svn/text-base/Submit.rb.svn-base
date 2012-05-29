@@ -1,0 +1,21 @@
+class RPHTML::Element::Form::Submit < RPHTML::Element::Form::Input
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "input"
+  Type          = "submit"
+
+  def xml_node_creation( frame = nil )
+    self.auto_label = false
+    super( frame )
+  end
+  
+  def xml_node_creation_actions( self_xml_node )
+    self_xml_node[ 'value' ]  = self.element_data_name
+    super( self_xml_node )
+  end
+  
+end

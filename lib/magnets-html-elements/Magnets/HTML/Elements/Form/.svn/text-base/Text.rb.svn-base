@@ -1,0 +1,11 @@
+class RPHTML::Element::Form::Text < RPHTML::Element::Form::Input
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "input"
+  Type          = "text"
+  
+end

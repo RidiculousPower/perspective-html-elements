@@ -1,0 +1,11 @@
+class RPHTML::Element::Text::Paragraph
+  include RPHTML::Abstract::Element  
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "p"
+  
+end

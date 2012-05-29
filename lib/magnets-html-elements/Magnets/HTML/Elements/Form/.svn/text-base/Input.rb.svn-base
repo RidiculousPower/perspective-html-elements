@@ -1,0 +1,39 @@
+class RPHTML::Element::Form::Input < RPHTML::Abstract::Input
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "input"
+    
+  ################
+  #  initialize  #
+  ################
+  
+  def initialize( parent_view = nil, name = nil )
+    super( parent_view, name )
+  end
+  
+  def rename( rename )
+    super
+    rename  = rename.to_sym
+    # change element_accessor
+    self.parent_form.element_storage[ rename ]  = self.parent_form.element_storage.delete( self.element_data_accessor )
+    # change name
+    self.element_data_accessor = rename
+    return self
+  end
+  
+  ###############################
+  #  xml_node_creation_actions  #
+  ###############################
+
+  def xml_node_creation_actions( self_xml_node )
+    super( self_xml_node )
+    if self.size
+      self_xml_node[ 'size' ] = self.size.to_s
+    end
+  end
+  
+end

@@ -1,0 +1,11 @@
+class RPHTML::Element::Table
+  include RPHTML::Abstract::Element  
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "table"
+  
+end

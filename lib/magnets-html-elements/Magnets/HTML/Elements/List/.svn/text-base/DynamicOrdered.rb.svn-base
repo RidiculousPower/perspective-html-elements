@@ -1,0 +1,55 @@
+class RPHTML::Element::List::DynamicOrdered
+  include RPHTML::Abstract::Object
+
+  attr_accessor :list
+  attr_accessor :return_text_if_empty
+  attr_accessor :storage_name
+
+  Tag           = "div"
+
+  def self.configureRPBDB
+    self.set_primary_key_method( :storage_name )
+  end
+
+  def self.initRPBDB
+
+    super()
+
+    self.define_view( :dynamic_list ) do |dynamic_list|
+
+      dynamic_list.define_elements( :list => RPHTML::Element::List::Ordered )
+      
+      list  = dynamic_list.element( :list )
+      
+      list.auto_label_empty  = true
+
+      # List for set of class or join hash objects
+      #
+      # * view.for_class
+      #   * view.name
+      #
+
+      # gives all classes and lists their view names beneath
+      list.add_class_item( :view_for_class, RPHTML::Abstract::View, :for_class, :name )
+      # gives all views for RPWeb::User and lists their name
+#      list.add_class_item( :view_for_class, RPHTML::Abstract::View, :name, :for_class => RPWeb::User )
+      # gives all classes that have views
+#      list.add_class_item( :view_for_class, :for_class, RPHTML::Abstract::View, :for_class, :name )
+
+
+
+      dynamic_list.add_form( :new_list_item ).define_elements(    :new_list_item    =>  RPHTML::Element::Form::Input,
+                                                                  :add_list_item    =>  RPHTML::Element::Form::Submit  )
+      dynamic_list.add_form( :new_list_group ).define_elements(   :new_list_group   =>  RPHTML::Element::Form::Input,
+                                                                  :add_list_group   =>  RPHTML::Element::Form::Submit  )
+
+    end
+
+  end
+
+  def initialize
+    super
+    self.return_text_if_empty  = true
+  end
+
+end
