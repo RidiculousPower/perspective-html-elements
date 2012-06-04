@@ -1,19 +1,17 @@
 
 require_relative '../../view/lib/magnets-html-view.rb'
 
-module ::Magnets::HTML
-  module Elements
-		class List
-	  end
-		class Table
-		  class Row
-	    end
-	  end
-  	class Head
-  	end
-  	module Text
-  	end
+module ::Magnets::HTML::Elements
+	class List
   end
+	class Table
+	  class Row
+    end
+  end
+	class Head
+	end
+	module Text
+	end
 end
 
 basepath = 'magnets-html-elements/Magnets/HTML/Elements'
