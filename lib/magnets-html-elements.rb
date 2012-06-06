@@ -12,13 +12,13 @@ module ::Magnets::HTML::Elements
 	end
 	module Text
 	end
+	class Form
+  end
 end
 
 basepath = 'magnets-html-elements/Magnets/HTML/Elements'
 
 files = [
-
-  'Attributes',
 
   'Head/Base',
   'Head/Link',
@@ -41,8 +41,8 @@ files = [
   'MailTo',
 
   'List/Item',
-  'List/Ordered',
-  'List/Unordered',
+  'List/OrderedList',
+  'List/UnorderedList',
 
   'Table/Row/Header',
   'Table/Row/Data',
@@ -59,35 +59,35 @@ files = [
   'Text/Span',
   'Text/Date',
 
-  'Form',
   'Form/Input',
-  'Form/Input/Button',
-  'Form/Input/Checkbox',
-  'Form/Input/Color',
-  'Form/Input/DataList',
-  'Form/Input/Date',
-  'Form/Input/DateTime',
-  'Form/Input/Email',
-  'Form/Input/Error',
-  'Form/Input/FileUpload',
-  'Form/Input/Hidden',
-  'Form/Input/Label',
-  'Form/Input/Month',
-  'Form/Input/Number',
-  'Form/Input/Password',
-  'Form/Input/Radio',
-  'Form/Input/Range',
-  'Form/Input/Reset',
-  'Form/Input/Search',
-  'Form/Input/Select',
-  'Form/Input/Select/Option',
-  'Form/Input/Submit',
-  'Form/Input/Telephone',
-  'Form/Input/Text',
-  'Form/Input/Text/TextArea',
-  'Form/Input/Time',
-  'Form/Input/URL',
-  'Form/Input/Week'
+  'Form/Input/ButtonInput',
+  'Form/Input/CheckboxInput',
+  'Form/Input/ColorInput',
+  'Form/Input/DataListInput',
+  'Form/Input/DateInput',
+  'Form/Input/DateTimeInput',
+  'Form/Input/EmailInput',
+  'Form/Input/InputError',
+  'Form/Input/FileUploadInput',
+  'Form/Input/HiddenInput',
+  'Form/Input/InputLabel',
+  'Form/Input/MonthInput',
+  'Form/Input/NumberInput',
+  'Form/Input/PasswordInput',
+  'Form/Input/RadioInput',
+  'Form/Input/RangeInput',
+  'Form/Input/ResetInput',
+  'Form/Input/SearchInput',
+  'Form/Input/SelectInput',
+  'Form/Input/Select/OptionInput',
+  'Form/Input/SubmitButton',
+  'Form/Input/TelephoneInput',
+  'Form/Input/TextInput',
+  'Form/Input/Text/TextAreaInput',
+  'Form/Input/TimeInput',
+  'Form/Input/URLInput',
+  'Form/Input/WeekInput',
+  'Form'
   
 ]
 

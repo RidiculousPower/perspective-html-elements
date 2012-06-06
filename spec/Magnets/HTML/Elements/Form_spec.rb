@@ -15,7 +15,7 @@ describe ::Magnets::HTML::Elements::Form do
 
     form.action = form_action
 
-    form.elements = ::Magnets::HTML::Elements::Form::Input::Text.new
+    form.elements = ::Magnets::HTML::Elements::Form::Input::TextInput.new
     form.elements.name = :some_input
 
     form_html_node = form.to_html_node
@@ -25,6 +25,6 @@ describe ::Magnets::HTML::Elements::Form do
 
     form_html_node.children[ 0 ].name.should == 'input'
   end
-
+  
 end
 
