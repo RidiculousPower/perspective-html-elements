@@ -14,6 +14,8 @@ module ::Magnets::HTML::Elements
 	end
 	class Form
   end
+	class HTML
+  end
 end
 
 basepath = 'magnets-html-elements/Magnets/HTML/Elements'
@@ -87,7 +89,11 @@ files = [
   'Form/Input/TimeInput',
   'Form/Input/URLInput',
   'Form/Input/WeekInput',
-  'Form'
+  'Form/Interface',
+  'Form',
+  
+  'HTML/Interface',
+  'HTML'
   
 ]
 

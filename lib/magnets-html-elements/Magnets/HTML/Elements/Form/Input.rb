@@ -3,7 +3,7 @@ module ::Magnets::HTML::Elements::Form::Input
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'input'
+  self.__container_tag__ = :input
     
   attr_required_text   :name
 

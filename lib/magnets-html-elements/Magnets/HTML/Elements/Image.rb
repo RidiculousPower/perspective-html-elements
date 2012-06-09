@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Image
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'img'
+  self.__container_tag__ = :img
 
 	attr_required_text	:source, :alternate_text
 	attr_text					  :height, :width, :long_description_address,

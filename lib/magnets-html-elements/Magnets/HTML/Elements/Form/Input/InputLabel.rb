@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Form::Input::InputLabel
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'label'
+  self.__container_tag__ = :label
 	
 	attr_required_view  :text, :for_input
 	attr_alias					:content, :text

@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Body
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'body'
+  self.__container_tag__ = :body
 
 	attr_required_views	 :content
 	attr_text						 :xml_namespace

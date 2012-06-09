@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::List::OrderedList
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'ol'
+  self.__container_tag__ = :ol
 
 	attr_views	:items, ::Magnets::HTML::Elements::List::Item
 

@@ -2,7 +2,7 @@
 class ::Magnets::HTML::Elements::Form::Input::TextInput::TextAreaInput < 
       ::Magnets::HTML::Elements::Form::Input::TextInput
 
-  self.__container_tag__ = 'textarea'
+  self.__container_tag__ = :textarea
   
 	attr_alias           :content, :value
 	

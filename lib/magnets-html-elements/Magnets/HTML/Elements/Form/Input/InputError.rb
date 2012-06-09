@@ -10,7 +10,7 @@ class ::Magnets::HTML::Elements::Form::Input::InputError
   ###############
 
   # Default tag or container tag
-  self.__container_tag__ = 'span'
+  self.__container_tag__ = :span
   
   attr_required_view		:for_input
   attr_text         		:text

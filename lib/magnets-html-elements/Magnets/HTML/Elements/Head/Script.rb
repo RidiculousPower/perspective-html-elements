@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Head::Script
 	
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'script'
+  self.__container_tag__ = :script
 
 	attr_required_view	:mime_type
 	attr_view						:character_set, :wait_for_page_load, :address, :preserve_whitespace

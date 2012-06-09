@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::PageAnchor
 
   include ::Magnets::HTML::View
   
-  self.__container_tag__ = 'a'
+  self.__container_tag__ = :a
   
 	attr_required_text   :subsection
 

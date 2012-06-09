@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Button
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'button'
+  self.__container_tag__ = :button
 
 	attr_view	:label, :name, :type, :value, :disabled
   

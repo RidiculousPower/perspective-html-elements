@@ -8,7 +8,7 @@ describe ::Magnets::HTML::Elements::Text::Date do
   ##################
 
   it 'can render an HTML date tag(<span><span>day</span><span>month</span><span>year</span></span>)' do
-
+    
     date = ::Magnets::HTML::Elements::Text::Date.new
 
     date.day   = 24

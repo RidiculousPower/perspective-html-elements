@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Head::Meta
 	
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'meta'
+  self.__container_tag__ = :meta
 
 	attr_required_view	:page_content
 	attr_text     			:name, :page_content_format, :header_for_page_content

@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Form::Input::SelectInput::OptionInput
 
   include ::Magnets::HTML::View
 
-  self.__container_tag__ = 'option'
+  self.__container_tag__ = :option
   
 	attr_text_or_number  :text, :value
 	attr_alias           :content, :text

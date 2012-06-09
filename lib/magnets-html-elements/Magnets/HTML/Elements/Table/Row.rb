@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Table::Row
 
   include ::Magnets::HTML::View  
   
-  self.__container_tag__ = 'tr'
+  self.__container_tag__ = :tr
 
 	attr_required_views	 :data
 	attr_alias           :content, :data

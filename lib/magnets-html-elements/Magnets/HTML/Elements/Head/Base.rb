@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Head::Base
 
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'base'
+  self.__container_tag__ = :base
 
 	attr_required_view	:address
 	attr_view           :target

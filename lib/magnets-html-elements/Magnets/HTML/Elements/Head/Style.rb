@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Head::Style
 	
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'style'
+  self.__container_tag__ = :style
 	Type					=	'text/css'
 
 	attr_view	  :media

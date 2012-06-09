@@ -3,7 +3,7 @@ class ::Magnets::HTML::Elements::Head::Link
 	
   include ::Magnets::HTML::View  
 
-  self.__container_tag__ = 'link'
+  self.__container_tag__ = :link
 
 	attr_view	    :location, :media, :character_set, :language, 
 								:mime_type, :target,
