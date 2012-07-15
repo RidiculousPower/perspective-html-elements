@@ -16,7 +16,8 @@ describe ::Magnets::HTML::Elements::Head do
     end
 
     head = ::Magnets::HTML::Elements::Head.new
-
+    head.__bindings__
+    head.__local_aliases_to_bindings__
     head_html_node = head.to_html_node
 
     head_html_node.name.should == 'head'
@@ -34,6 +35,8 @@ describe ::Magnets::HTML::Elements::Head do
     end
 
     head = ::Magnets::HTML::Elements::Head.new
+    head.__bindings__
+    head.__local_aliases_to_bindings__
 
     head_html_node = head.to_html_node
 
