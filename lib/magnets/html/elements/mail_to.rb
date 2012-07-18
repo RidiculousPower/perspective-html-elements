@@ -14,5 +14,5 @@ class ::Magnets::HTML::Elements::MailTo < ::Magnets::HTML::Elements::Anchor
     return self_as_html_node
     
   end
-	
+
 end
