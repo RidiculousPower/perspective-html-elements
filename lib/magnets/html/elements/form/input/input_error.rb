@@ -31,7 +31,9 @@ class ::Magnets::HTML::Elements::Form::Input::InputError
 		for_input_name = nil
 		case for_input
   	  when ::Magnets::HTML::Elements::Form::Input
-    	  for_input_name = for_input.name
+    	  for_input_name = for_input.__name__.to_s
+  	  when ::Symbol
+  	    for_input_name = for_input.to_s
   		else
     	  for_input_name = for_input
 	  end
