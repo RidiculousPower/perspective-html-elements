@@ -12,11 +12,12 @@ describe ::Perspective::HTML::Elements::Form do
     form = ::Perspective::HTML::Elements::Form.new
 
     form_action = 'http:://example.com'
+    form.action.value = form_action
 
-    form.action = form_action
+    form.elements.view = ::Perspective::HTML::Elements::Form::Input::TextInput.new
 
-    form.elements = ::Perspective::HTML::Elements::Form::Input::TextInput.new
-    form.elements.name = :some_input
+    form.elements.name.value = :some_input
+    form.elements.value.value = 'some element'
 
     form_html_node = form.to_html_node
 
@@ -24,6 +25,7 @@ describe ::Perspective::HTML::Elements::Form do
     form_html_node[ 'action' ].should == form_action
 
     form_html_node.children[ 0 ].name.should == 'input'
+    
   end
   
 end

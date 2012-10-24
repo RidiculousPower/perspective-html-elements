@@ -15,8 +15,8 @@ describe ::Perspective::HTML::Elements::Form::Input::InputLabel do
     label_text  = 'Example!'
     label_for   = 'input_name'
     
-    label.text = label_text
-    label.for_input = label_for
+    label.text.value = label_text
+    label.for_input.value = label_for
 
     label_html_node = label.to_html_node
 

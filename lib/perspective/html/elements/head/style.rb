@@ -22,8 +22,8 @@ class ::Perspective::HTML::Elements::Head::Style
 		self_as_html_node[ 'type' ] = Type
 
 		# FIX - screen, tty, tv, projection, handheld, print, braille, aural, all
-		if media
-			self_as_html_node[ 'media' ] = media
+		if media_value = media.__value__
+			self_as_html_node[ 'media' ] = media_value
 		end
     
     return self_as_html_node

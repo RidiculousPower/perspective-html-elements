@@ -9,7 +9,7 @@ class ::Perspective::HTML::Elements::Form::Input::SubmitButton
   attr_number  :width
   
   attr_alias   :button_text, :value
-  
+
   attr_text    :encoding
   
   attr_text    :request_method
@@ -26,7 +26,7 @@ class ::Perspective::HTML::Elements::Form::Input::SubmitButton
 
     self_as_html_node = super
 
-		if image
+		if image_value = image.__value__
 
   		self_as_html_node[ 'type' ] = 'image'
   		if button_text
@@ -35,27 +35,27 @@ class ::Perspective::HTML::Elements::Form::Input::SubmitButton
   		  self_as_html_node[ 'alt' ] = 'submit'
       end
       
-  		case image
+  		case image_value
   		  when File
-      		self_as_html_node[ 'src' ] = image.path
+      		self_as_html_node[ 'src' ] = image_value.path
   	    when String
-      		self_as_html_node[ 'src' ] = image
+      		self_as_html_node[ 'src' ] = image_value
 		  end
 		  
-		  if height
-    		self_as_html_node[ 'height' ] = height	    
+		  if height_value = height.__value__
+    		self_as_html_node[ 'height' ] = height_value	    
 	    end
 	    
-	    if width
-    		self_as_html_node[ 'width' ] = width	    
+	    if width_value = width.__value__
+    		self_as_html_node[ 'width' ] = width_value	    
       end
 
 		else
 
   		self_as_html_node[ 'type' ] = 'submit'
 
-  		if button_text
-  		  self_as_html_node[ 'value' ] = button_text
+  		if button_text_value = button_text.__value__
+  		  self_as_html_node[ 'value' ] = button_text_value
 		  else
   		  self_as_html_node[ 'value' ] = 'Submit'
       end

@@ -20,13 +20,13 @@ class ::Perspective::HTML::Elements::Form::Input::InputLabel
 
 		for_input_name = nil
 
-		case for_input
+		case for_input_instance = for_input.__value__
   	  when ::Perspective::HTML::Elements::Form::Input
-    	  for_input_name = for_input.__name__.to_s
+    	  for_input_name = for_input_instance.__name__.__value__.to_s
   	  when ::Symbol
-  	    for_input_name = for_input.to_s
+  	    for_input_name = for_input_instance.to_s
   		else
-    	  for_input_name = for_input
+    	  for_input_name = for_input_instance
 	  end
 	  css_id = for_input_name.dup
 	  css_id << '_label'

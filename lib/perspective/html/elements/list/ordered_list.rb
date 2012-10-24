@@ -17,15 +17,16 @@ class ::Perspective::HTML::Elements::List::OrderedList
 
     self_as_html_node = super
 
-		if items.is_a?( ::Array )
+		if items_value = items.__value__ and
+		   items_value.is_a?( ::Array )
 
-			items.each do |this_item|
+			items_value.each do |this_item|
 			  add_list_item( self_as_html_node, this_item )
 			end
 
 		else
 
-		  add_list_item( self_as_html_node, items )
+		  add_list_item( self_as_html_node, items_value )
 
 		end
     
@@ -46,7 +47,7 @@ class ::Perspective::HTML::Elements::List::OrderedList
 		else
 
 			list_item = ::Perspective::HTML::Elements::List::Item.new
-			list_item.content = content_item
+			list_item.content.__value__ = content_item
 			self_as_html_node.add_child( list_item.to_html_node )
 
 		end

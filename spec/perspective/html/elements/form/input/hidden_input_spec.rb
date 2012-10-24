@@ -12,11 +12,11 @@ describe ::Perspective::HTML::Elements::Form::Input::HiddenInput do
 
     hidden = ::Perspective::HTML::Elements::Form::Input::HiddenInput.new
 
-    hidden.name = :some_hidden
+    hidden.name.value = :some_hidden
 
     hidden_value  = 'Example!'
     
-    hidden.value = hidden_value
+    hidden.value.value = hidden_value
 
     hidden_html_node = hidden.to_html_node
 

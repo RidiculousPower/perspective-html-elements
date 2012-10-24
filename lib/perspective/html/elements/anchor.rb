@@ -25,11 +25,11 @@ class ::Perspective::HTML::Elements::Anchor
     super()
     
     if text
-      self.text = text
+      self.text.value = text
     end
     
     if url
-      self.url = url
+      self.url.value = url
     end
     
   end
@@ -42,26 +42,26 @@ class ::Perspective::HTML::Elements::Anchor
 
     self_as_html_node = super
     
-    self_as_html_node[ 'href' ]	= url
+    self_as_html_node[ 'href' ]	= url.value
     
-    if mime_type
-      self_as_html_node[ 'type' ] = mime_type
+    if mime_type.value
+      self_as_html_node[ 'type' ] = mime_type.value
     end
 
-    if language
-      self_as_html_node[ 'hreflang' ] = language
+    if language.value
+      self_as_html_node[ 'hreflang' ] = language.value
     end
 
-    if optimal_media
-      self_as_html_node[ 'media' ] = optimal_media
+    if optimal_media.value
+      self_as_html_node[ 'media' ] = optimal_media.value
     end
 
-    if target
-      self_as_html_node[ 'target' ] = target
+    if target.value
+      self_as_html_node[ 'target' ] = target.value
     end
 
-    if relationship_to_link
-      self_as_html_node[ 'rel' ] = relationship_to_link
+    if relationship_to_link.value
+      self_as_html_node[ 'rel' ] = relationship_to_link.value
     end
     
     return self_as_html_node

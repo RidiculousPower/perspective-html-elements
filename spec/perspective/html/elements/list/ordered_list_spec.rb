@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::List::OrderedList do
     ordered_list_item_one = 'Example One!'
     ordered_list_item_two = 'Example Two!'
 
-    ordered_list.items = [ ordered_list_item_one, ordered_list_item_two ]
+    ordered_list.items.value = [ ordered_list_item_one, ordered_list_item_two ]
 
     ordered_list_html_node = ordered_list.to_html_node
 

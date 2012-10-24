@@ -20,15 +20,15 @@ class ::Perspective::HTML::Elements::Form::Input::SelectInput::OptionInput
 
     self_as_html_node = super
 
-    if value
-		  self_as_html_node[ 'value' ] = value
+    if value_value = value.__value__
+		  self_as_html_node[ 'value' ] = value_value
 		end
 		
-		if disabled?
+		if disabled?.__value__
 		  self_as_html_node[ 'disabled' ] = 'disabled'
     end
     
-    if selected?
+    if selected?.__value__
 		  self_as_html_node[ 'selected' ] = 'selected'
 		end
     

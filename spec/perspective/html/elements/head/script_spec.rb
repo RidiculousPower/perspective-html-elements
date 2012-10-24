@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Head::Script do
 
     script_type  = 'text/javascript'
 
-    script.mime_type = script_type
+    script.mime_type.value = script_type
 
     script_html_node = script.to_html_node
 

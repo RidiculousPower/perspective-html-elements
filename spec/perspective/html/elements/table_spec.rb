@@ -11,9 +11,9 @@ describe ::Perspective::HTML::Elements::Table do
 
     table = ::Perspective::HTML::Elements::Table.new
 
-    table.rows = ::Perspective::HTML::Elements::Table::Row.new
-    table.rows.data = ::Perspective::HTML::Elements::Table::Row::Data.new
-    table.rows.data.content = 'content'
+    table.rows.view = ::Perspective::HTML::Elements::Table::Row.new
+    table.rows.data.view = ::Perspective::HTML::Elements::Table::Row::Data.new
+    table.rows.data.content.value = 'content'
 
     table_html_node = table.to_html_node
 

@@ -14,8 +14,8 @@ describe ::Perspective::HTML::Elements::Head::Base do
     base_address  = 'http://example.com'
     base_target = 'example_target'
 
-    base.address = base_address
-    base.target = base_target
+    base.address.value = base_address
+    base.target.value = base_target
 
     base_html_node = base.to_html_node
 

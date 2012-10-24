@@ -13,8 +13,8 @@ class ::Perspective::HTML::Elements::Form::Input::PasswordInput
 
 		self_as_html_node[ 'type' ] = 'password'
 
-    if value
-		  self_as_html_node[ 'value' ] = value
+    if value_value = value.__value__
+		  self_as_html_node[ 'value' ] = value_value
 		end
     
     return self_as_html_node

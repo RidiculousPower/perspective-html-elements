@@ -18,13 +18,13 @@ class ::Perspective::HTML::Elements::Head::Base
 
     self_as_html_node = super
 
-		if address
-			self_as_html_node[ 'href' ]	= address
+		if address_value = address.__value__
+			self_as_html_node[ 'href' ]	= address_value
 		end
 		
 		# FIX - Possible targets are: _blank, _parent, _self, _top, framename
-    if target
-		  self_as_html_node[ 'target' ]	= target
+    if target_value = target.__value__
+		  self_as_html_node[ 'target' ]	= target_value
 		end
     
     return self_as_html_node

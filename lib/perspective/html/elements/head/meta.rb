@@ -19,23 +19,23 @@ class ::Perspective::HTML::Elements::Head::Meta
     self_as_html_node = super
 
 		# FIX - author, description, keywords, generator, revised, others
-		if name
-			self_as_html_node[ 'name' ] = name
+		if name_value = name.__value__
+			self_as_html_node[ 'name' ] = name_value
 		end
 
 		# FIX - media types: screen, tty, tv, projection, handheld, print, braille, aural, all
-		if page_content
-			self_as_html_node[ 'content' ] = page_content
+		if page_content_value = page_content.__value__
+			self_as_html_node[ 'content' ] = page_content_value
 		end
 
 		# FIX - format/URI
-		if page_content_format
-			self_as_html_node[ 'scheme' ] = page_content_format
+		if page_content_format_value = page_content_format.__value__
+			self_as_html_node[ 'scheme' ] = page_content_format_value
 		end
 
 		# FIX - content-type, content-style-type, expires, set-cookie, others
-		if header_for_page_content
-			self_as_html_node[ 'http-equiv' ] = header_for_page_content
+		if header_for_page_content_value = header_for_page_content.__value__
+			self_as_html_node[ 'http-equiv' ] = header_for_page_content_value
 		end
 
     return self_as_html_node

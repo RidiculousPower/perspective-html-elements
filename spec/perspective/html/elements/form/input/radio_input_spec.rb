@@ -12,11 +12,11 @@ describe ::Perspective::HTML::Elements::Form::Input::RadioInput do
 
     radio = ::Perspective::HTML::Elements::Form::Input::RadioInput.new
 
-    radio.name = :some_radio
+    radio.name.value = :some_radio
     
     radio_value  = 'Example!'
     
-    radio.value = radio_value
+    radio.value.value = radio_value
 
     radio_html_node = radio.to_html_node
 

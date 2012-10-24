@@ -44,7 +44,7 @@ module ::Perspective::HTML::Elements::Form::Input
 		  self_as_html_node[ 'name' ] = name.to_s
 		end
 		
-		if suggestions
+		if suggestions.__view__
 		  self_as_html_node[ 'list' ] = suggestions.to_html_node
 	  end
     

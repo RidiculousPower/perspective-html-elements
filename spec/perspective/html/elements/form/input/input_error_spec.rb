@@ -15,8 +15,8 @@ describe ::Perspective::HTML::Elements::Form::Input::InputError do
     error_text  = 'Error!'
     error_for   = 'input_name'
     
-    error.text = error_text
-    error.for_input = error_for
+    error.text.value = error_text
+    error.for_input.value = error_for
 
     error_html_node = error.to_html_node
 

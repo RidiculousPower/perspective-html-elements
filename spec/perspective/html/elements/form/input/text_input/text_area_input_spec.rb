@@ -11,11 +11,11 @@ describe ::Perspective::HTML::Elements::Form::Input::TextInput::TextAreaInput do
 
     text_area = ::Perspective::HTML::Elements::Form::Input::TextInput::TextAreaInput.new
 
-    text_area.name = :some_text_area
+    text_area.name.value = :some_text_area
     
     text_area_content = 'Example!'
 
-    text_area.content = text_area_content
+    text_area.content.value = text_area_content
 
     text_area_html_node = text_area.to_html_node
 

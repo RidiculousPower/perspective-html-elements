@@ -19,25 +19,25 @@ class ::Perspective::HTML::Elements::Head::Script
     self_as_html_node = super
   	
   	# FIX - MIME type
-		self_as_html_node[ 'type' ] = mime_type
+		self_as_html_node[ 'type' ] = mime_type.__value__
 
 		# FIX - charset
-		if character_set
-			self_as_html_node[ 'charset' ] = character_set
+		if character_set_value = character_set.__value__
+			self_as_html_node[ 'charset' ] = character_set_value
 		end
 
 		# FIX - defer
-		if wait_for_page_load
-			self_as_html_node[ 'defer' ] = wait_for_page_load
+		if wait_for_page_load_value = wait_for_page_load.__value__
+			self_as_html_node[ 'defer' ] = wait_for_page_load_value
 		end
 
-		if address
-			self_as_html_node[ 'src' ] = address
+		if address_value = address.__value__
+			self_as_html_node[ 'src' ] = address_value
 		end
 
 		# FIX - preserve
-		if preserve_whitespace
-			self_as_html_node[ 'xml:space' ] = preserve_whitespace
+		if preserve_whitespace_value = preserve_whitespace.__value__
+			self_as_html_node[ 'xml:space' ] = preserve_whitespace_value
 		end
     
     return self_as_html_node

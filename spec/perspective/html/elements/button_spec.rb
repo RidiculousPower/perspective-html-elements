@@ -9,7 +9,7 @@ describe ::Perspective::HTML::Elements::Button do
 
     button_text = 'Example!'
 
-    button.label = button_text
+    button.label.value = button_text
 
     button_html_node = button.to_html_node
 

@@ -7,7 +7,7 @@ class ::Perspective::HTML::Elements::Head
 
 	attr_view	:title, ::Perspective::HTML::Elements::Head::Title do |title_instance|
 
-	  self.title = ::Perspective.request ? ::Perspective.request.path_info : 'Untitled'
+	  self.title.value = ::Perspective.request ? ::Perspective.request.path_info : 'Untitled'
 
   end
 	

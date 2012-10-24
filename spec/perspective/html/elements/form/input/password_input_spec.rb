@@ -12,11 +12,11 @@ describe ::Perspective::HTML::Elements::Form::Input::PasswordInput do
 
     password = ::Perspective::HTML::Elements::Form::Input::PasswordInput.new
 
-    password.name = :some_password
+    password.name.value = :some_password
     
     password_value  = 'Example!'
     
-    password.value = password_value
+    password.value.value = password_value
 
     password_html_node = password.to_html_node
 

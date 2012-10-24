@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Head::Title do
 
     title_text = 'Example!'
 
-    title.content = title_text
+    title.content.value = title_text
 
     title_html_node = title.to_html_node
 

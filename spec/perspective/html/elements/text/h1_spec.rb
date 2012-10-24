@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Text::H1 do
 
     h1_content = 'Example!'
 
-    h1.content = h1_content
+    h1.content.value = h1_content
 
     h1_html_node = h1.to_html_node
 

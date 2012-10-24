@@ -38,7 +38,7 @@ class ::Perspective::HTML::Elements::PageAnchor
 
     self_as_html_node = super
 
-		self_as_html_node[ 'href' ]	= '#' + subsection
+		self_as_html_node[ 'href' ]	= '#' + subsection.__value__
   
     return self_as_html_node
   

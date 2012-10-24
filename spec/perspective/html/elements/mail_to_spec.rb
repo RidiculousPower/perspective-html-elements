@@ -14,8 +14,8 @@ describe ::Perspective::HTML::Elements::MailTo do
     mail_address  = 'example@example.com'
     mail_link     = 'Example!'
 
-    mail.address = mail_address
-    mail.text = mail_link
+    mail.address.value = mail_address
+    mail.text.value = mail_link
 
     mail_html_node = mail.to_html_node
 

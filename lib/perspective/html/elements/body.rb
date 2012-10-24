@@ -18,8 +18,8 @@ class ::Perspective::HTML::Elements::Body
 
     self_as_html_node = super
 
-		if xml_namespace
-			self_as_html_node[ 'xmlns' ] = xml_namespace
+		if xml_namespace.value
+			self_as_html_node[ 'xmlns' ] = xml_namespace.value
 		end
     
     return self_as_html_node

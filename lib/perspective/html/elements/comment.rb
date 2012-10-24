@@ -21,7 +21,7 @@ class ::Perspective::HTML::Elements::Comment
     
     super
     
-    self.padding = '  '
+    self.padding.value = '  '
     
   end
 
@@ -35,7 +35,7 @@ class ::Perspective::HTML::Elements::Comment
   
   def __initialize_container_node__( document_frame )
         
-    return ::Nokogiri::XML::Comment.new( document_frame, padding + text + padding )
+    return ::Nokogiri::XML::Comment.new( document_frame, padding.value + text.value + padding.value )
     
   end
   

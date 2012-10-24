@@ -17,7 +17,7 @@ class ::Perspective::HTML::Elements::Button
 
     self_as_html_node = super
 
-		self_as_html_node.content	= label
+		self_as_html_node.content	= label.value
     
     return self_as_html_node
   

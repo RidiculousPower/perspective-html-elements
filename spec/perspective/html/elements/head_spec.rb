@@ -43,7 +43,7 @@ describe ::Perspective::HTML::Elements::Head do
 
     head = ::Perspective::HTML::Elements::Head.new
 
-    head.title = 'Title'
+    head.title.value = 'Title'
 
     head_html_node = head.to_html_node
 

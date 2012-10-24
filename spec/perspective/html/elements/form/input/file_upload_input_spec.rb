@@ -12,11 +12,11 @@ describe ::Perspective::HTML::Elements::Form::Input::FileUploadInput do
 
     file_upload = ::Perspective::HTML::Elements::Form::Input::FileUploadInput.new
 
-    file_upload.name = :some_file_upload
+    file_upload.name.value = :some_file_upload
 
     file_upload_value  = 'Example!'
     
-    file_upload.value = file_upload_value
+    file_upload.value.value = file_upload_value
 
     file_upload_html_node = file_upload.to_html_node
 

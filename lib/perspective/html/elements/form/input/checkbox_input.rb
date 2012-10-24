@@ -22,8 +22,8 @@ class ::Perspective::HTML::Elements::Form::Input::CheckboxInput
 		  self_as_html_node[ 'checked' ] = 'checked'
 		end
 		
-		if value
-		  self_as_html_node[ 'value' ] = value
+		if value_value = value.__value__
+		  self_as_html_node[ 'value' ] = value_value
 		end
     
     return self_as_html_node
