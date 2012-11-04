@@ -9,7 +9,7 @@ describe ::Perspective::HTML::Elements::Body do
 
     body_text = 'Example!'
 
-    body.content.value = body_text
+    body.content.__value__ = body_text
 
     body_html_node = body.to_html_node
 

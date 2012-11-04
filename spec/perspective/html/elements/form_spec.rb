@@ -12,12 +12,12 @@ describe ::Perspective::HTML::Elements::Form do
     form = ::Perspective::HTML::Elements::Form.new
 
     form_action = 'http:://example.com'
-    form.action.value = form_action
+    form.action = form_action
 
     form.elements.view = ::Perspective::HTML::Elements::Form::Input::TextInput.new
 
-    form.elements.name.value = :some_input
-    form.elements.value.value = 'some element'
+    form.elements.name = :some_input
+    form.elements = 'some element'
 
     form_html_node = form.to_html_node
 

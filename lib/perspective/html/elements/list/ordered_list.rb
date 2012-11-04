@@ -13,7 +13,7 @@ class ::Perspective::HTML::Elements::List::OrderedList
   #  to_html_node  #
   ##################
 
-  def to_html_node( document_frame = nil, view_rendering_empty = false )
+  def to_html_node( document_frame = nil, view_rendering_empty = @__view_rendering_empty__ )
 
     self_as_html_node = super
 
@@ -47,7 +47,7 @@ class ::Perspective::HTML::Elements::List::OrderedList
 		else
 
 			list_item = ::Perspective::HTML::Elements::List::Item.new
-			list_item.content.__value__ = content_item
+			list_item.content = content_item
 			self_as_html_node.add_child( list_item.to_html_node )
 
 		end

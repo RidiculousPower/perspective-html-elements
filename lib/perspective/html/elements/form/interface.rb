@@ -1,5 +1,5 @@
 
-module ::Perspective::HTML::Elements::Form::Interface
+module ::Perspective::HTML::Elements::Form::FormInterface
   
   include ::Perspective::HTML::View
   

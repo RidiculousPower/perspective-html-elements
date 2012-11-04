@@ -14,9 +14,9 @@ describe ::Perspective::HTML::Elements::Form::Input::SelectInput::OptionInput do
     option_value  = 'Example!'
     option_text   = 'Example Text!'
 
-    option.text.value = option_text
-    option.value.value = option_value
-    option.disabled?.value = true
+    option.text = option_text
+    option.value = option_value
+    option.disabled?.__value__ = true
     option_html_node = option.to_html_node
 
     option_html_node.name.should == 'option'

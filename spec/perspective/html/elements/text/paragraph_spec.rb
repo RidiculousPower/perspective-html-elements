@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Text::Paragraph do
 
     paragraph_content = 'Example!'
 
-    paragraph.content.value = paragraph_content
+    paragraph.content.__value__ = paragraph_content
 
     paragraph_html_node = paragraph.to_html_node
 

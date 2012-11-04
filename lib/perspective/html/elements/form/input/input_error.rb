@@ -22,7 +22,7 @@ class ::Perspective::HTML::Elements::Form::Input::InputError
   #  to_html_node  #
   ##################
 
-  def to_html_node( document_frame = nil, view_rendering_empty = false )
+  def to_html_node( document_frame = nil, view_rendering_empty = @__view_rendering_empty__ )
 
 	  self.text ||= ''
 
@@ -32,7 +32,7 @@ class ::Perspective::HTML::Elements::Form::Input::InputError
 
 		case for_input_instance = for_input.__value__
   	  when ::Perspective::HTML::Elements::Form::Input
-    	  for_input_name = for_input_instance.__name__.__value__.to_s
+    	  for_input_name = for_input_instance.name.to_s
   	  when ::Symbol
   	    for_input_name = for_input_instance.to_s
   		else

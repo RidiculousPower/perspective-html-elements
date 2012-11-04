@@ -15,14 +15,14 @@ describe ::Perspective::HTML::Elements::Form::Input::InputError do
     error_text  = 'Error!'
     error_for   = 'input_name'
     
-    error.text.value = error_text
-    error.for_input.value = error_for
+    error.text = error_text
+    error.for_input = error_for
 
     error_html_node = error.to_html_node
 
     error_html_node.name.should == 'span'
     error_html_node.content.should == error_text
-    error_html_node[ 'class' ].should == 'error'
+    error_html_node[ 'class' ].should == 'Perspective::HTML::Elements::Form::Input::InputError'
     error_html_node[ 'for' ].should == error_for
 
   end

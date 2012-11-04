@@ -34,14 +34,14 @@ module ::Perspective::HTML::Elements::Form::Input
   #  to_html_node  #
   ##################
 
-  def to_html_node( document_frame = nil, view_rendering_empty = false )
+  def to_html_node( document_frame = nil, view_rendering_empty = @__view_rendering_empty__ )
 
     self_as_html_node = super
 
 		self.value ||= ''
 		
-		if name
-		  self_as_html_node[ 'name' ] = name.to_s
+		if name_value = name.__value__
+		  self_as_html_node[ 'name' ] = name_value.to_s
 		end
 		
 		if suggestions.__view__

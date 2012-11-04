@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Table::Row::Header do
 
     table_data_header_content = 'Example!'
 
-    table_data_header.content.value = table_data_header_content
+    table_data_header.content.__value__ = table_data_header_content
 
     table_data_header_html_node = table_data_header.to_html_node
 

@@ -10,8 +10,8 @@ describe ::Perspective::HTML::Elements::PageAnchor do
     anchor_subsection = 'example_section'
     anchor_text = 'Example!'
 
-    anchor.subsection.value = anchor_subsection
-    anchor.text.value = anchor_text
+    anchor.subsection.__value__ = anchor_subsection
+    anchor.text.__value__ = anchor_text
 
     anchor_html_node = anchor.to_html_node
 

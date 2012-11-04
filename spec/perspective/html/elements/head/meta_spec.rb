@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Head::Meta do
 
     meta_content  = 'Meta!'
 
-    meta.page_content.value = meta_content
+    meta.page_content.__value__ = meta_content
 
     meta_html_node = meta.to_html_node
 

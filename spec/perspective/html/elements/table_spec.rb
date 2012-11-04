@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Table do
 
     table.rows.view = ::Perspective::HTML::Elements::Table::Row.new
     table.rows.data.view = ::Perspective::HTML::Elements::Table::Row::Data.new
-    table.rows.data.content.value = 'content'
+    table.rows.data.content.__value__ = 'content'
 
     table_html_node = table.to_html_node
 

@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Head::Link do
 
     link_location  = 'http://example.com'
 
-    link.location.value = link_location
+    link.location.__value__ = link_location
 
     link_html_node = link.to_html_node
 

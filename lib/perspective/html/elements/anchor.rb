@@ -11,7 +11,7 @@ class ::Perspective::HTML::Elements::Anchor
 	attr_required_texts  :text
 	attr_alias					 :content, :text
 
-  # FIX - relationships should be moved into methods
+  # FIX - relationship_to_link should be moved into methods
 	attr_text				     :language, :mime_type, :target, :relationship_to_link, :optimal_media
 	
 	attr_order           :content
@@ -24,13 +24,8 @@ class ::Perspective::HTML::Elements::Anchor
     
     super()
     
-    if text
-      self.text.value = text
-    end
-    
-    if url
-      self.url.value = url
-    end
+    self.text = text
+    self.url = url
     
   end
 
@@ -38,30 +33,30 @@ class ::Perspective::HTML::Elements::Anchor
   #  to_html_node  #
   ##################
 
-  def to_html_node( document_frame = nil, view_rendering_empty = false )
+  def to_html_node( document_frame = nil, view_rendering_empty = @__view_rendering_empty__ )
 
     self_as_html_node = super
     
-    self_as_html_node[ 'href' ]	= url.value
+    self_as_html_node[ 'href' ]	= url.__value__
     
-    if mime_type.value
-      self_as_html_node[ 'type' ] = mime_type.value
+    if mime_type_value = mime_type.__value__
+      self_as_html_node[ 'type' ] = mime_type_value
     end
 
-    if language.value
-      self_as_html_node[ 'hreflang' ] = language.value
+    if language_value = language.__value__
+      self_as_html_node[ 'hreflang' ] = language_value
     end
 
-    if optimal_media.value
-      self_as_html_node[ 'media' ] = optimal_media.value
+    if optimal_media_value = optimal_media.__value__
+      self_as_html_node[ 'media' ] = optimal_media_value
     end
 
-    if target.value
-      self_as_html_node[ 'target' ] = target.value
+    if target_value = target.__value__
+      self_as_html_node[ 'target' ] = target_value
     end
 
-    if relationship_to_link.value
-      self_as_html_node[ 'rel' ] = relationship_to_link.value
+    if relationship_to_link_value = relationship_to_link.__value__
+      self_as_html_node[ 'rel' ] = relationship_to_link_value
     end
     
     return self_as_html_node

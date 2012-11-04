@@ -11,9 +11,9 @@ describe ::Perspective::HTML::Elements::Text::Date do
     
     date = ::Perspective::HTML::Elements::Text::Date.new
 
-    date.day.value   = 24
-    date.month.value = 5
-    date.year.value  = 1981
+    date.day.__value__   = 24
+    date.month.__value__ = 5
+    date.year.__value__  = 1981
 
     date_html_node = date.to_html_node
 
@@ -22,9 +22,9 @@ describe ::Perspective::HTML::Elements::Text::Date do
     date_html_node.children[ 0 ].name.should == 'span'
     date_html_node.children[ 1 ].name.should == 'span'
     date_html_node.children[ 2 ].name.should == 'span'
-    date_html_node.children[ 0 ].content.should == date.day.value.to_s
-    date_html_node.children[ 1 ].content.should == date.month.value.to_s
-    date_html_node.children[ 2 ].content.should == date.year.value.to_s
+    date_html_node.children[ 0 ].content.should == date.day.to_s
+    date_html_node.children[ 1 ].content.should == date.month.to_s
+    date_html_node.children[ 2 ].content.should == date.year.to_s
 
   end
 

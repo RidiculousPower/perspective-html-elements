@@ -12,11 +12,11 @@ describe ::Perspective::HTML::Elements::Form::Input::TextInput do
 
     input = ::Perspective::HTML::Elements::Form::Input::TextInput.new
 
-    input.name.value = :some_input
+    input.name.__value__ = :some_input
     
     input_value = 'Example!'
 
-    input.value.value = input_value
+    input.value = input_value
 
     input_html_node = input.to_html_node
 

@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_text = 'Example!'
     
     link = ::Perspective::HTML::Elements::Anchor.new( link_text )
-    link.text.value.should == link_text
+    link.text.should == link_text
     
   end
   
@@ -23,7 +23,7 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_text = 'Example!'
     
     link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.url.value.should == link_url
+    link.url.should == link_url
     
   end
 
@@ -38,8 +38,8 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_url  = 'http://example.com'
     link_text = 'Example!'
 
-    link.url.value = link_url
-    link.text.value = link_text
+    link.url.__value__ = link_url
+    link.text.__value__ = link_text
 
     link_html_node = link.to_html_node
 
@@ -58,11 +58,11 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_url  = 'http://example.com'
     link_text = 'Example!'
     link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.mime_type.value = 'text/html'
+    link.mime_type.__value__ = 'text/html'
     
     link_html_node = link.to_html_node
 
-    link_html_node[ 'type' ].should == link.mime_type.value
+    link_html_node[ 'type' ].should == link.mime_type.__value__
     
   end
   
@@ -75,11 +75,11 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_url  = 'http://example.com'
     link_text = 'Example!'
     link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.language.value = 'en'
+    link.language.__value__ = 'en'
     
     link_html_node = link.to_html_node
 
-    link_html_node[ 'hreflang' ].should == link.language.value
+    link_html_node[ 'hreflang' ].should == link.language.__value__
     
   end
 
@@ -92,11 +92,11 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_url  = 'http://example.com'
     link_text = 'Example!'
     link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.optimal_media.value = 'all'
+    link.optimal_media.__value__ = 'all'
     
     link_html_node = link.to_html_node
 
-    link_html_node[ 'media' ].should == link.optimal_media.value
+    link_html_node[ 'media' ].should == link.optimal_media.__value__
     
   end
 
@@ -109,11 +109,11 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_url  = 'http://example.com'
     link_text = 'Example!'
     link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.target.value = '_self'
+    link.target.__value__ = '_self'
     
     link_html_node = link.to_html_node
 
-    link_html_node[ 'target' ].should == link.target.value
+    link_html_node[ 'target' ].should == link.target.__value__
     
   end
 
@@ -126,11 +126,11 @@ describe ::Perspective::HTML::Elements::Anchor do
     link_url  = 'http://example.com'
     link_text = 'Example!'
     link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.relationship_to_link.value = 'alternate'
+    link.relationship_to_link.__value__ = 'alternate'
     
     link_html_node = link.to_html_node
 
-    link_html_node[ 'rel' ].should == link.relationship_to_link.value
+    link_html_node[ 'rel' ].should == link.relationship_to_link.__value__
     
   end
 

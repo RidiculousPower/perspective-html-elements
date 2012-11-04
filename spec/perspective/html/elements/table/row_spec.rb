@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Table::Row do
 
     table_row_content = 'Example!'
 
-    table_row.content.value = table_row_content
+    table_row.content.__value__ = table_row_content
 
     table_row_html_node = table_row.to_html_node
 

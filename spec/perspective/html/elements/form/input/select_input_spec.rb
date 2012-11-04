@@ -12,7 +12,7 @@ describe ::Perspective::HTML::Elements::Form::Input::SelectInput do
 
     select = ::Perspective::HTML::Elements::Form::Input::SelectInput.new
 
-    select.name.value = :some_select
+    select.name = :some_select
     
     select_html_node = select.to_html_node
 

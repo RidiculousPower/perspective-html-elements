@@ -14,7 +14,7 @@ class ::Perspective::HTML::Elements::Form::Input::InputLabel
   #  to_html_node  #
   ##################
 
-  def to_html_node( document_frame = nil, view_rendering_empty = false )
+  def to_html_node( document_frame = nil, view_rendering_empty = @__view_rendering_empty__ )
 
     self_as_html_node = super
 
@@ -22,7 +22,7 @@ class ::Perspective::HTML::Elements::Form::Input::InputLabel
 
 		case for_input_instance = for_input.__value__
   	  when ::Perspective::HTML::Elements::Form::Input
-    	  for_input_name = for_input_instance.__name__.__value__.to_s
+    	  for_input_name = for_input_instance.name.to_s
   	  when ::Symbol
   	    for_input_name = for_input_instance.to_s
   		else
@@ -32,9 +32,6 @@ class ::Perspective::HTML::Elements::Form::Input::InputLabel
 	  css_id << '_label'
 	  self_as_html_node[ 'for' ] = for_input_name
 
-	  self.__css_class__ ||= :label
-	  self.__css_id__ ||= css_id
-  
     return self_as_html_node
   
   end

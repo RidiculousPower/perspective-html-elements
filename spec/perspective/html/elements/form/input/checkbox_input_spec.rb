@@ -11,12 +11,12 @@ describe ::Perspective::HTML::Elements::Form::Input::CheckboxInput do
 
     checkbox = ::Perspective::HTML::Elements::Form::Input::CheckboxInput.new
 
-    checkbox.name.value = :some_checkbox
+    checkbox.name.__value__ = :some_checkbox
 
     checkbox_value  = 'Example!'
 
-    checkbox.checked.value = true
-    checkbox.value.value = checkbox_value
+    checkbox.checked = true
+    checkbox.value = checkbox_value
 
     checkbox_html_node = checkbox.to_html_node
 

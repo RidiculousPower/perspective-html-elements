@@ -12,11 +12,11 @@ describe ::Perspective::HTML::Elements::Form::Input::SubmitButton do
 
     submit = ::Perspective::HTML::Elements::Form::Input::SubmitButton.new
 
-    submit.name.value = :some_submit
+    submit.name = :some_submit
     
     submit_value  = 'Example!'
     
-    submit.value.value = submit_value
+    submit.value = submit_value
 
     submit_html_node = submit.to_html_node
 

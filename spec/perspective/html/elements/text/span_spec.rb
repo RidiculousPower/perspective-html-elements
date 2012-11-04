@@ -13,7 +13,7 @@ describe ::Perspective::HTML::Elements::Text::Span do
 
     span_content = 'Example!'
 
-    span.content.value = span_content
+    span.content.__value__ = span_content
 
     span_html_node = span.to_html_node
 

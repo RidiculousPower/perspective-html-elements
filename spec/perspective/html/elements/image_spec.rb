@@ -14,8 +14,8 @@ describe ::Perspective::HTML::Elements::Image do
     image_source          = 'http://example.com'
     image_alternate_text  = 'Example!'
 
-    image.source.value = image_source
-    image.alternate_text.value = image_alternate_text
+    image.source.__value__ = image_source
+    image.alternate_text.__value__ = image_alternate_text
 
     image_html_node = image.to_html_node
 
@@ -31,7 +31,7 @@ describe ::Perspective::HTML::Elements::Image do
 
     image_source          = 'http://example.com'
 
-    image.source.value = image_source
+    image.source.__value__ = image_source
 
     image_html_node = image.to_html_node
 

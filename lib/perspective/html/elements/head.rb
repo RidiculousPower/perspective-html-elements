@@ -6,9 +6,7 @@ class ::Perspective::HTML::Elements::Head
   self.__container_tag__ = :head
 
 	attr_view	:title, ::Perspective::HTML::Elements::Head::Title do |title_instance|
-
-	  self.title.value = ::Perspective.request ? ::Perspective.request.path_info : 'Untitled'
-
+	  self.title = ::Perspective.request ? ::Perspective.request.path_info : 'Untitled'
   end
 	
 	attr_alias  :title_text, title.content
