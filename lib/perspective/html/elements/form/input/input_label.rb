@@ -4,8 +4,12 @@ class ::Perspective::HTML::Elements::Form::Input::InputLabel
   include ::Perspective::HTML::View  
 
   self.__container_tag__ = :label
+
+	attr_required_view  :for_input
 	
-	attr_required_view  :text, :for_input
+	for_input.extend( ::Perspective::Bindings::ReferenceBinding )
+
+	attr_required_view  :text
 	attr_alias					:content, :text
 	
 	attr_order          :text
@@ -28,8 +32,7 @@ class ::Perspective::HTML::Elements::Form::Input::InputLabel
   		else
     	  for_input_name = for_input_instance
 	  end
-	  css_id = for_input_name.dup
-	  css_id << '_label'
+
 	  self_as_html_node[ 'for' ] = for_input_name
 
     return self_as_html_node

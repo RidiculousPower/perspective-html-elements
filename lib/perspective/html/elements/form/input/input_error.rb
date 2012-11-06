@@ -3,16 +3,13 @@ class ::Perspective::HTML::Elements::Form::Input::InputError
  
   include ::Perspective::HTML::View
 
-  self.__css_class__ = :error
-  
-  ###############
-  #  Constants  #
-  ###############
-
-  # Default tag or container tag
   self.__container_tag__ = :span
   
   attr_required_view		:for_input
+  
+  # make the binding store its value as a reference to another binding
+  for_input.extend( ::Perspective::Bindings::ReferenceBinding )
+
   attr_text         		:text
 	attr_alias						:content, :text
 	
@@ -38,8 +35,7 @@ class ::Perspective::HTML::Elements::Form::Input::InputError
   		else
     	  for_input_name = for_input_instance
 	  end
-	  css_id = for_input_name.dup
-	  css_id << '_error'
+
 	  self_as_html_node[ 'for' ] = for_input_name
     
     return self_as_html_node
