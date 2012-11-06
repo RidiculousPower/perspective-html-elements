@@ -32,6 +32,8 @@ class ::Perspective::HTML::Elements::Form::Input::InputError
     	  for_input_name = for_input_instance.name.to_s
   	  when ::Symbol
   	    for_input_name = for_input_instance.to_s
+	    when ::Perspective::Bindings::InstanceBinding
+	      for_input_name = for_input_instance.__name__.to_s
   		else
     	  for_input_name = for_input_instance
 	  end
