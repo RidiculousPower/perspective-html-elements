@@ -1,15 +1,15 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
 describe ::Perspective::HTML::Elements::Form::Input::SubmitButton do
 
-
   ##################
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML submit tag (<input type="submit">)' do
-
+  it 'will render an HTML submit tag (<input type="submit">)' do
+    
     submit = ::Perspective::HTML::Elements::Form::Input::SubmitButton.new
 
     submit.name = :some_submit

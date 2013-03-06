@@ -1,12 +1,7 @@
+# -*- encoding : utf-8 -*-
 
 class ::Perspective::HTML::Elements::Div
 
-  include ::Perspective::HTML::View  
-
-  self.__container_tag__ = :div
+  include ::Perspective::HTML::Elements::Div::DivInterface
   
-	attr_views	:content
-
-	attr_order	:content
-
 end

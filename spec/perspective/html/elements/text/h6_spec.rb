@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,13 +8,13 @@ describe ::Perspective::HTML::Elements::Text::H6 do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML H6 tag(<h6 ...>)' do
+  it 'will render an HTML H6 tag(<h6 ...>)' do
 
     h6 = ::Perspective::HTML::Elements::Text::H6.new
 
     h6_content = 'Example!'
 
-    h6.content.__value__ = h6_content
+    h6.content = h6_content
 
     h6_html_node = h6.to_html_node
 

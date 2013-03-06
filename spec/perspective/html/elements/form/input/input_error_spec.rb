@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
@@ -8,7 +9,7 @@ describe ::Perspective::HTML::Elements::Form::Input::InputError do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML error tag (<error for="...">)' do
+  it 'will render an HTML error tag (<error for="...">)' do
 
     error = ::Perspective::HTML::Elements::Form::Input::InputError.new
 

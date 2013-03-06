@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../lib/perspective/html/elements.rb'
 
@@ -7,14 +8,15 @@ describe ::Perspective::HTML::Elements::Form do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML FORM tag (<form>)' do
+  it 'will render an HTML FORM tag (<form>)' do
 
+    ::Perspective::BindingTypes::HTMLBindings.define_binding_methods( :URI )
     form = ::Perspective::HTML::Elements::Form.new
 
     form_action = 'http:://example.com'
     form.action = form_action
 
-    form.elements.view = ::Perspective::HTML::Elements::Form::Input::TextInput.new
+    form.•elements.«view» = ::Perspective::HTML::Elements::Form::Input::TextInput.new
 
     form.elements.name = :some_input
     form.elements = 'some element'

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,13 +8,13 @@ describe ::Perspective::HTML::Elements::Text::Span do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML SPAN tag(<span ...>)' do
+  it 'will render an HTML SPAN tag(<span ...>)' do
 
     span = ::Perspective::HTML::Elements::Text::Span.new
 
     span_content = 'Example!'
 
-    span.content.__value__ = span_content
+    span.content = span_content
 
     span_html_node = span.to_html_node
 

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
@@ -8,11 +9,11 @@ describe ::Perspective::HTML::Elements::Form::Input::HiddenInput do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML hidden input tag (<input type="hidden">)' do
+  it 'will render an HTML hidden input tag (<input type="hidden">)' do
 
     hidden = ::Perspective::HTML::Elements::Form::Input::HiddenInput.new
 
-    hidden.name.__value__ = :some_hidden
+    hidden.name = :some_hidden
 
     hidden_value  = 'Example!'
     

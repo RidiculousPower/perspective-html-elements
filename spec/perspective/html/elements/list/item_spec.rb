@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -9,7 +10,7 @@ describe ::Perspective::HTML::Elements::List::Item do
 
     list_item_text = 'Example!'
 
-    list_item.content.__value__ = list_item_text
+    list_item.content = list_item_text
 
     list_item_html_node = list_item.to_html_node
 

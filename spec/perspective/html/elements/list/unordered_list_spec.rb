@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -13,7 +14,7 @@ describe ::Perspective::HTML::Elements::List::UnorderedList do
     unordered_list_item_one = 'Example One!'
     unordered_list_item_two = 'Example Two!'
 
-    unordered_list.items.__value__ = [ unordered_list_item_one, unordered_list_item_two ]
+    unordered_list.items = [ unordered_list_item_one, unordered_list_item_two ]
 
     unordered_list_html_node = unordered_list.to_html_node
 

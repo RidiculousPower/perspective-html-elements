@@ -1,6 +1,7 @@
+# -*- encoding : utf-8 -*-
 
 class ::Perspective::HTML::Elements::List::UnorderedList < ::Perspective::HTML::Elements::List::OrderedList
   
-  self.__container_tag__ = :ul
+  self.«container_tag» = :ul
 
 end

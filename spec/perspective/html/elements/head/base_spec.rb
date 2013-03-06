@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -14,8 +15,8 @@ describe ::Perspective::HTML::Elements::Head::Base do
     base_address  = 'http://example.com'
     base_target = 'example_target'
 
-    base.address.__value__ = base_address
-    base.target.__value__ = base_target
+    base.address = base_address
+    base.target = base_target
 
     base_html_node = base.to_html_node
 

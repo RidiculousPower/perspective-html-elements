@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -13,7 +14,7 @@ describe ::Perspective::HTML::Elements::List::OrderedList do
     ordered_list_item_one = 'Example One!'
     ordered_list_item_two = 'Example Two!'
 
-    ordered_list.items.__value__ = [ ordered_list_item_one, ordered_list_item_two ]
+    ordered_list.items = [ ordered_list_item_one, ordered_list_item_two ]
 
     ordered_list_html_node = ordered_list.to_html_node
 

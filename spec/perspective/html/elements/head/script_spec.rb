@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,13 +8,13 @@ describe ::Perspective::HTML::Elements::Head::Script do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML SCRIPT tag (<script ...>)' do
+  it 'will render an HTML SCRIPT tag (<script ...>)' do
 
     script = ::Perspective::HTML::Elements::Head::Script.new
 
     script_type  = 'text/javascript'
 
-    script.mime_type.__value__ = script_type
+    script.mime_type = script_type
 
     script_html_node = script.to_html_node
 

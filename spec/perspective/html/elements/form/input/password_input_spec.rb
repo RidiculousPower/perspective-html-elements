@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
@@ -8,7 +9,7 @@ describe ::Perspective::HTML::Elements::Form::Input::PasswordInput do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML password tag (<input type="password">)' do
+  it 'will render an HTML password tag (<input type="password">)' do
 
     password = ::Perspective::HTML::Elements::Form::Input::PasswordInput.new
 

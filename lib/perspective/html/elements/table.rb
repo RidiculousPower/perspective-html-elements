@@ -1,14 +1,17 @@
+# -*- encoding : utf-8 -*-
 
 class ::Perspective::HTML::Elements::Table
 
   include ::Perspective::HTML::View  
 
-  self.__container_tag__ = :table
+  self.«container_tag» = :table
   
-	attr_required_views	:rows
-	attr_alias          :content, :rows
-	attr_view						:summary, :width, :rules, :frame, :cell_spacing, :cell_padding, :border_width
+  attr_view             :headers, ::Perspective::HTML::Elements::Table::HeaderRow
+	attr_views	          :rows, ::Perspective::HTML::Elements::Table::Row
+	attr_text_property	  :summary, :rules, :frame
+	attr_number_property  :width, :cell_spacing, :cell_padding, :border_width
 
-	attr_order		      :rows
+  attr_autobind       :rows
+	attr_order		      :headers, :rows
 
 end

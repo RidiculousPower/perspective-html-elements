@@ -1,15 +1,14 @@
+# -*- encoding : utf-8 -*-
 
 class ::Perspective::HTML::Elements::Table::Row
 
   include ::Perspective::HTML::View  
   
-  self.__container_tag__ = :tr
+  self.«container_tag» = :tr
 
-	attr_required_views	 :data
-	attr_alias           :content, :data
-	attr_views					 :headers
-	attr_view						 :alignment, :vertical_alignment , :character_alignment, :character_offset
+	attr_views        	 :data, ::Perspective::HTML::Elements::Table::Row::Data
+	attr_text_property	 :alignment, :vertical_alignment , :character_alignment, :character_offset
 
-	attr_order		       :headers, :data
+	attr_order		       :data
 
 end

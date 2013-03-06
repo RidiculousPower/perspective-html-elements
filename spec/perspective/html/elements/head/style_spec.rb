@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,7 +8,7 @@ describe ::Perspective::HTML::Elements::Head::Style do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML SCRIPT tag (<style ...>)' do
+  it 'will render an HTML SCRIPT tag (<style ...>)' do
 
     style = ::Perspective::HTML::Elements::Head::Style.new
 

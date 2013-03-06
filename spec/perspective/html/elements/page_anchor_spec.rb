@@ -1,17 +1,18 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../lib/perspective/html/elements.rb'
 
 describe ::Perspective::HTML::Elements::PageAnchor do
 
-  it 'can render an HTML anchor with a page section (<a href="#...">)' do
+  it 'will render an HTML anchor with a page section (<a href="#...">)' do
     
     anchor = ::Perspective::HTML::Elements::PageAnchor.new
 
     anchor_subsection = 'example_section'
     anchor_text = 'Example!'
 
-    anchor.subsection.__value__ = anchor_subsection
-    anchor.text.__value__ = anchor_text
+    anchor.subsection = anchor_subsection
+    anchor.text = anchor_text
 
     anchor_html_node = anchor.to_html_node
 

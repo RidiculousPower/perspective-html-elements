@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,13 +8,13 @@ describe ::Perspective::HTML::Elements::Text::H4 do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML H4 tag(<h4 ...>)' do
+  it 'will render an HTML H4 tag(<h4 ...>)' do
 
     h4 = ::Perspective::HTML::Elements::Text::H4.new
 
     h4_content = 'Example!'
 
-    h4.content.__value__ = h4_content
+    h4.content = h4_content
 
     h4_html_node = h4.to_html_node
 

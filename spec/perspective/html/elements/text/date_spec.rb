@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,13 +8,13 @@ describe ::Perspective::HTML::Elements::Text::Date do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML date tag(<span><span>day</span><span>month</span><span>year</span></span>)' do
+  it 'will render an HTML date tag(<span><span>day</span><span>month</span><span>year</span></span>)' do
     
     date = ::Perspective::HTML::Elements::Text::Date.new
 
-    date.day.__value__   = 24
-    date.month.__value__ = 5
-    date.year.__value__  = 1981
+    date.day   = 24
+    date.month = 5
+    date.year  = 1981
 
     date_html_node = date.to_html_node
 

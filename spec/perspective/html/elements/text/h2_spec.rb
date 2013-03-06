@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
@@ -7,13 +8,13 @@ describe ::Perspective::HTML::Elements::Text::H2 do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML H2 tag(<h2 ...>)' do
+  it 'will render an HTML H2 tag(<h2 ...>)' do
 
     h2 = ::Perspective::HTML::Elements::Text::H2.new
 
     h2_content = 'Example!'
 
-    h2.content.__value__ = h2_content
+    h2.content = h2_content
 
     h2_html_node = h2.to_html_node
 

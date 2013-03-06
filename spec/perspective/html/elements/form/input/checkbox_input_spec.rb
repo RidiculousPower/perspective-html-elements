@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
@@ -7,11 +8,11 @@ describe ::Perspective::HTML::Elements::Form::Input::CheckboxInput do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML checkbox tag (<input type="checkbox">)' do
+  it 'will render an HTML checkbox tag (<input type="checkbox">)' do
 
     checkbox = ::Perspective::HTML::Elements::Form::Input::CheckboxInput.new
 
-    checkbox.name.__value__ = :some_checkbox
+    checkbox.name = :some_checkbox
 
     checkbox_value  = 'Example!'
 

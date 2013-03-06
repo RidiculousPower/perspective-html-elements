@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../../lib/perspective/html/elements.rb'
 
@@ -7,7 +8,7 @@ describe ::Perspective::HTML::Elements::Form::Input::SelectInput::OptionInput do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML OPTION tag (<option>)' do
+  it 'will render an HTML OPTION tag (<option>)' do
 
     option = ::Perspective::HTML::Elements::Form::Input::SelectInput::OptionInput.new
 
@@ -16,7 +17,7 @@ describe ::Perspective::HTML::Elements::Form::Input::SelectInput::OptionInput do
 
     option.text = option_text
     option.value = option_value
-    option.disabled?.__value__ = true
+    option.disable!
     option_html_node = option.to_html_node
 
     option_html_node.name.should == 'option'

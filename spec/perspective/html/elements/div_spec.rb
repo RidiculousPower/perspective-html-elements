@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../lib/perspective/html/elements.rb'
 
@@ -9,7 +10,7 @@ describe ::Perspective::HTML::Elements::Div do
 
     div_text = 'Example!'
 
-    div.content.__value__ = div_text
+    div.content = div_text
 
     div_html_node = div.to_html_node
 

@@ -1,137 +1,111 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../lib/perspective/html/elements.rb'
 
 describe ::Perspective::HTML::Elements::Anchor do
 
+  let( :link_url ) { 'http://example.com' }
+  let( :link_text ) { 'Example!' }
+
+  let( :link ) { ::Perspective::HTML::Elements::Anchor.new( link_text, link_url ) }
+  let( :link_html_node ) { link.to_html_node }
+
   ################
   #  initialize  #
   ################
-
-  it 'can be initialized with link text' do
-    
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text )
-    link.text.should == link_text
-    
+  
+  context '#initialize' do
+    context 'with link text' do
+      let( :link ) { ::Perspective::HTML::Elements::Anchor.new( link_text ) }
+      it 'will initialize with link text' do
+        link.text.should == link_text
+      end
+    end
+    context 'with link text and url' do
+      it 'will initialize with link text and url' do
+        link.text.should == link_text
+        link.url.should == link_url
+      end
+    end
   end
   
-  it 'can be initialized with link text and url' do
-    
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.url.should == link_url
-    
-  end
-
   ##################
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML anchor with a URI (<a href="...://..."...>)' do
-
-    link = ::Perspective::HTML::Elements::Anchor.new
-
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-
-    link.url.__value__ = link_url
-    link.text.__value__ = link_text
-
-    link_html_node = link.to_html_node
-
-    link_html_node.name.should == 'a'
-    link_html_node[ 'href' ].should == link_url
-    link_html_node.content.should == link_text
-
+  context '#to_html_node' do
+    before :each do
+      link.url = link_url
+      link.text = link_text
+    end
+    it 'will render an HTML anchor with a URI (<a href="...://..."...>)' do
+      link_html_node.name.should == 'a'
+      link_html_node[ 'href' ].should == link_url
+      link_html_node.content.should == link_text
+    end
   end
 
-  #-------------#
+  ###############
   #  mime_type  #
-  #-------------#
+  ###############
   
-  it 'can specify mime type' do
-
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.mime_type.__value__ = 'text/html'
-    
-    link_html_node = link.to_html_node
-
-    link_html_node[ 'type' ].should == link.mime_type.__value__
-    
+  context '#mime_type' do
+    before :each do
+      link.mime_type = 'text/html'
+    end
+    it 'will specify mime type' do
+      link_html_node[ 'type' ].should == link.mime_type
+    end
   end
-  
-  #------------#
+    
+  ##############
   #  language  #
-  #------------#
+  ##############
 
-  it 'can specify language' do
-
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.language.__value__ = 'en'
-    
-    link_html_node = link.to_html_node
-
-    link_html_node[ 'hreflang' ].should == link.language.__value__
-    
+  context '#language' do
+    before :each do
+      link.language = 'en'
+    end
+    it 'will specify language' do
+      link_html_node[ 'hreflang' ].should == link.language
+    end
   end
 
-  #-----------------#
+  ###################
   #  optimal_media  #
-  #-----------------#
+  ###################
 
-  it 'can specify optimal media' do
-
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.optimal_media.__value__ = 'all'
-    
-    link_html_node = link.to_html_node
-
-    link_html_node[ 'media' ].should == link.optimal_media.__value__
-    
+  context '#optimal_media' do
+    before :each do
+      link.optimal_media = 'all'
+    end
+    it 'will specify optimal media' do
+      link_html_node[ 'media' ].should == link.optimal_media
+    end
   end
 
-  #----------#
+  ############
   #  target  #
-  #----------#
+  ############
 
-  it 'can specify target' do
-
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.target.__value__ = '_self'
-    
-    link_html_node = link.to_html_node
-
-    link_html_node[ 'target' ].should == link.target.__value__
-    
+  context '#target' do
+    it 'will specify target' do
+      link.target = '_self'
+      link_html_node[ 'target' ].should == link.target
+    end
   end
 
-  #------------------------#
+  ##########################
   #  relationship_to_link  #
-  #------------------------#
+  ##########################
 
-  it 'can specify relationship of current document to link' do
-
-    link_url  = 'http://example.com'
-    link_text = 'Example!'
-    link = ::Perspective::HTML::Elements::Anchor.new( link_text, link_url )
-    link.relationship_to_link.__value__ = 'alternate'
-    
-    link_html_node = link.to_html_node
-
-    link_html_node[ 'rel' ].should == link.relationship_to_link.__value__
-    
+  context '#relationship_to_link' do
+    before :each do
+      link.relationship_to_link = 'alternate'
+    end
+    it 'will specify relationship of current document to link' do
+      link_html_node[ 'rel' ].should == link.relationship_to_link
+    end
   end
 
 end

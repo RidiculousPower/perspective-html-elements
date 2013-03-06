@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
@@ -8,7 +9,7 @@ describe ::Perspective::HTML::Elements::Form::Input::RadioInput do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML radio tag (<input type="radio">)' do
+  it 'will render an HTML radio tag (<input type="radio">)' do
 
     radio = ::Perspective::HTML::Elements::Form::Input::RadioInput.new
 

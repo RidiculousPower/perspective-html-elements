@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
@@ -8,11 +9,11 @@ describe ::Perspective::HTML::Elements::Form::Input::TextInput do
   #  to_html_node  #
   ##################
 
-  it 'can render an HTML INPUT tag (<input>)' do
+  it 'will render an HTML INPUT tag (<input>)' do
 
     input = ::Perspective::HTML::Elements::Form::Input::TextInput.new
 
-    input.name.__value__ = :some_input
+    input.name = :some_input
     
     input_value = 'Example!'
 
