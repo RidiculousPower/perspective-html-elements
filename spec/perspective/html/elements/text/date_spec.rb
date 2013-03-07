@@ -3,20 +3,19 @@
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
 describe ::Perspective::HTML::Elements::Text::Date do
-
+  
+  let( :date ) { ::Perspective::HTML::Elements::Text::Date.new }
+  let( :date_html_node ) { date.to_html_node }
+  
   ##################
   #  to_html_node  #
   ##################
 
   it 'will render an HTML date tag(<span><span>day</span><span>month</span><span>year</span></span>)' do
     
-    date = ::Perspective::HTML::Elements::Text::Date.new
-
     date.day   = 24
     date.month = 5
     date.year  = 1981
-
-    date_html_node = date.to_html_node
 
     date_html_node.name.should == 'span'
 
