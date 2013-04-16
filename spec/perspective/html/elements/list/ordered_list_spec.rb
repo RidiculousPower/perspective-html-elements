@@ -13,9 +13,8 @@ describe ::Perspective::HTML::Elements::List::OrderedList do
 
     ordered_list.item[ 0 ] = ordered_list_item_one
     ordered_list.item[ 1 ] = ordered_list_item_two
-
     ordered_list_html_node = ordered_list.to_html_node
-
+    
     ordered_list_html_node.name.should == 'ol'
     ordered_list_html_node.children[ 0 ].name.should == 'li'
     ordered_list_html_node.children[ 0 ].content.should == ordered_list_item_one

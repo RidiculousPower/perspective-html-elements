@@ -27,7 +27,7 @@ describe ::Perspective::HTML::Elements::Head do
   ##################
   
   context '#to_html_node' do
-    before :all do
+    before :each do
       module Perspective
         alias_singleton_method :orig_path_info, :path_info if respond_to?( :path_info )
         alias_singleton_method :orig_request, :request if respond_to?( :request )
@@ -67,7 +67,7 @@ describe ::Perspective::HTML::Elements::Head do
       end
     end
     context 'when request has path info' do
-      before :all do
+      before :each do
         Perspective.has_request = true
       end
       after :all do

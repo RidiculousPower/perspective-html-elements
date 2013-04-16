@@ -10,5 +10,5 @@ class ::Perspective::HTML::Elements::List::Item
 
   attr_autobind :content
 	attr_order	:content
-	
+
 end
