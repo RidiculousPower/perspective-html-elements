@@ -1,0 +1,10 @@
+class RPHTML::Element::List::Unordered < RPHTML::Element::List::Ordered
+  
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "ul"
+  
+end

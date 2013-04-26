@@ -6,7 +6,7 @@ class ::Perspective::HTML::Elements::Table::HeaderRow < ::Perspective::HTML::Ele
   
   self.«container_tag» = :tr
 
-	attr_views        	 :header, ::Perspective::HTML::Elements::Table::Row::Header
+	attr_views        	 :header, ::Perspective::HTML::Elements::Table::HeaderRow::HeaderData
 	attr_text_property	 :alignment, :vertical_alignment , :character_alignment, :character_offset
 
 	attr_order		       :header

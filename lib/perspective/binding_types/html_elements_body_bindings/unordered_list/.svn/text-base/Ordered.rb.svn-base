@@ -1,0 +1,27 @@
+
+class RPHTML::Element::List::Ordered < RPHTML::Element::List::Abstract
+
+  ###############
+  #  Accessors  #
+  ###############
+
+  attr_accessor :sub_lists_are_ordered
+  
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag                  = "ol"
+
+  ################
+  #  initialize  #
+  ################
+
+  def initialize
+    super()
+    self.sub_lists_are_ordered  = true
+  end
+    
+end
+

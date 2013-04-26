@@ -1,0 +1,10 @@
+class RPHTML::Element::Form::Select < RPHTML::Abstract::Input
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "select"
+  
+end

@@ -1,0 +1,11 @@
+class RPHTML::Element::Form::Radio < RPHTML::Element::Form::Input
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "input"
+  Type          = "radio"
+  
+end

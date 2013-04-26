@@ -1,0 +1,44 @@
+
+class RPHTML::Element::List::DynamicUnordered < RPHTML::Element::List::DynamicOrdered
+  include RPHTML::Abstract::Object
+
+  attr_accessor :return_text_if_empty
+  attr_accessor :storage_name
+
+  def self.configureRPBDB
+    self.set_primary_key_method( :storage_name )
+  end
+
+  def self.initRPBDB
+    
+    super() 
+    
+    self.define_view( 'dynamic_list' ) do |dynamic_list|
+
+      dynamic_list.add_form( 'dynamic_list' ).define_elements(  :new_class_name   =>  RPHTML::Element::Form::Input,
+                                                                :add_class        =>  RPHTML::Element::Form::Submit  )
+
+    end
+    
+  end
+
+  def initialize
+    super
+    self.return_text_if_empty  = true
+  end
+
+  def xml_node_creation_actions( self_xml_node )
+    if self.name
+      title_header  = RPHTML::Element::Text::Header.new
+      title_header.contents = self.name
+      self.add_child_to_parent_container_before( title_header )
+    end
+    super( self_xml_node )
+    if self.children.empty?
+      empty_list_p  = RPHTML::Element::Text::Paragraph.new
+      empty_list_p.contents = 'List contains no elements.'
+      self.add_child( empty_list_p )
+    end
+  end
+  
+end

@@ -1,0 +1,417 @@
+class RPHTML::Element::Form
+  include RPHTML::Abstract::Element::Controller
+
+  attr_accessor :parent_view, :parent_form_controller
+
+  attr_accessor :constructors
+
+  attr_accessor :action, :get_or_post
+  
+  attr_accessor :has_error
+  
+  attr_accessor :workflow_mapping, :workflow_action_method
+
+  attr_accessor :process_by_create
+  
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "form"
+
+  ################
+  #  initialize  #
+  ################
+
+  def initialize( parent_view = nil, name = nil )
+    super( parent_view, name )
+    self.process_by_create  = true
+    self.constructors       = Array.new
+    self.workflow_mapping   = Hash.new
+  end
+  
+  ##########
+  #  dump  #
+  ##########
+
+  def dump
+    self.parent_form_controller = nil
+    super()
+  end
+  
+  ############
+  #  rename  #
+  ############
+
+  def rename( rename )
+    rename  = rename.to_sym
+
+    # rename form in parent view
+    self.parent_view.forms[ rename ]  = self.parent_view.forms.delete( self.element_data_accessor )
+    # replace form name in element order
+    self.parent_view.element_order[ self.parent_view.element_order.index( self.element_data_accessor ) ] = rename
+    # replace form name in element storage
+    self.parent_view.element_storage[ rename ] = self.parent_view.element_storage.delete( self.element_data_accessor )
+    self.element_data_accessor = rename
+    return self
+  end
+  
+  ######################
+  #  add_constructors  #
+  ######################
+
+  def add_constructor( constructor )
+    self.constructors.push( constructor )
+  end
+
+  def add_constructors( *constructors )
+    constructors.each do |this_constructor|
+      self.add_constructor( constructor )
+    end
+    self.write
+  end
+
+  ######################
+  #  constructor_args  #
+  ######################
+
+  # contructors can be defined:
+  # 1. :symbol_in_params
+  # 2. { callback_object => :callback_method_symbol }
+  def constructor_args( params )
+    constructor_args  = Array.new
+    which_contructor = 0
+    self.constructors.each do |this_constructor|
+      which_constructor += 1
+      # symbol - args in params
+      if this_constructor.respond_to?( :to_sym )
+        if ! params.has_key?( this_constructor.to_sym )
+          raise ArgumentError, 'Constructor #' + which_child.to_s + ' (' + this_contructor.to_s + ') was not available in supplied parameters.'
+        end
+        # Now check for errors with this parameter so we don't use invalid parameters for constructor          
+          # first get the element for this_contructor
+          # second ask the element to check errors for this data
+          self.parent_view.element( this_constructor ).data_has_errors?( params )
+      # hash - callback_object => callback_method_symbol
+      else
+        this_constructor.each do |this_callback_object, this_callback_method|
+          if ! this_callback_object.respond_to?( this_callback_method.to_sym )
+            raise ArgumentError, 'Constructor #' + which_child.to_s + ' (callback object class ' + this_callback_object.class + this_contructor.to_s + ') does not respond to callback method ' + this_callback_method.to_sym + '.'
+          end
+          constructor_args.push( this_callback_object.__send__( this_callback_method ) )
+        end
+      end
+      constructor_args.push( params[ this_constructor ] )
+    end
+    if constructor_args.empty?
+      return nil
+    else
+      return constructor_args
+    end
+  end
+  
+  ########################
+  #  parent_data_object  #
+  ########################
+
+  def parent_data_object
+    
+    # normally we have a parent_data_object set for our data
+    # if we've already edited data but the parent object hasn't changed yet then we may have
+    # a stored session object with our partially edited data
+    
+    if self.parent_view and self.parent_view.parent_data_object
+      return self.parent_view.parent_data_object
+    elsif self.parent_form_controller
+      return RPHTML::Factory::Session::Object.retrieve_for_session_page_view_form( parent_form_controller.request.session_options[ :id ], 
+                                                                          self.parent_form_controller.referring_page_path,
+                                                                          self.name,
+                                                                          self.parent_view.name)
+    end
+  end
+
+  #######################
+  #  parent_data_class  #
+  #######################
+
+  def parent_data_class
+    if self.parent_view and self.parent_view.parent_data_class
+      return self.parent_view.parent_data_class
+    end
+  end
+  
+  #####################
+  #  define_elements  #
+  #####################
+
+  def define_elements( element_mapping_hash )
+    super( element_mapping_hash )
+    element_mapping_hash.each do |this_element_accessor, this_element_or_class|
+      this_element = nil
+      # if we have class or instance
+      if ! this_element_or_class.is_a?( Symbol )
+        if this_element_or_class.class == Class
+          this_element  = this_element_or_class.new
+        else
+          this_element  = this_element_or_class
+        end        
+        # if we have an element we can set parent_view and element_data_accessor
+        # if we have a symbol we will have to set the values upon return
+        this_element.parent_view  = self
+        this_element.parent_form  = self
+        this_element.element_data_accessor = this_element_accessor
+      # if we have a symbol
+      else
+        this_element  = this_element_or_class       
+      end
+      self.add_child( this_element_accessor, this_element )
+    end
+    return self.parent_view.write
+  end
+
+  ##########################
+  #  define_error_process  #
+  ##########################
+
+  def define_error_process( callback_method, error_mapping_hash = Hash.new  )
+    
+  end
+  
+  #####################
+  #  define_workflow  #
+  #####################
+
+  def define_workflow( callback_method, workflow_mapping_hash = Hash.new  )
+
+    # Two possibilities:
+
+    # * form.define_workflow( :callback_method, callback_method_result =>  :action_method, ... )
+    if ! workflow_mapping_hash.empty?
+
+      self.workflow_mapping[ callback_method ]  = workflow_mapping_hash
+
+    # * form.define_workflow( :action_method )
+    else
+
+      self.workflow_action_method = callback_method
+
+    end
+
+  end
+  
+  #########################
+  #  autoset_form_action  #
+  #########################
+  
+  # Called when RPHTML::Element::Form is rendered to xml_node
+  def autoset_form_action( frame )
+
+    if ! frame.parent_page
+      self.action = 'http://no_page_to_autoset_action/'
+    elsif ! frame.parent_page.parent_page_controller
+      self.action = 'http://no_page_controller_to_autoset_action/'
+    else
+      css_class_name = nil
+      if self.parent_data_object
+        css_class_name  = self.parent_data_object.class.to_s
+      else
+        css_class_name  = self.to_s
+      end
+
+      self.action = self.parent_data_class.identifier.to_s + '/' + self.parent_view.name.to_s + '/' + self.css_id.to_s + '/' + 'parse'
+    end
+    
+    return self.action
+    
+  end
+
+  #######################
+  #  xml_node_creation  #
+  #######################
+
+  def xml_node_creation( frame = nil, rendering_session_data = false )
+    
+    # if we have a frame and are thus drawing inside a page we have to check if 
+    if  ! rendering_session_data and
+        frame and 
+        frame.parent_page and 
+        frame.parent_page.parent_page_controller and 
+        frame.parent_page.parent_page_controller.session and
+        # before we draw our form we need to see if we have existing form data for this form that hasn't been submitted
+        existing_form_session_data  = RPHTML::Factory::Session::FormData.retrieve_for_session_page_view_form(  frame.parent_page.parent_page_controller.request.session_options[ :id ],
+                                                                                                                frame.parent_page.name,
+                                                                                                                self.parent_view.name,
+                                                                                                                self.name ) 
+
+      object_instance = existing_form_session_data.central_data_storage_object.object_not_yet_in_any_database
+      return object_instance.use_view( self.parent_view ).form( self.name ).xml_node_creation( frame, true )
+    end
+    
+    # otherwise we use super's function to return xml_node
+    return super( frame )
+
+  end
+  
+  ###############################
+  #  xml_node_creation_actions  #
+  ###############################
+  
+  def xml_node_creation_actions( self_xml_node )
+    if self.get_or_post  == :post
+      self_xml_node[ 'method' ]    = 'POST'
+    else
+      self_xml_node[ 'method' ]    = 'GET'
+    end
+    if ! self.css_id
+      self_xml_node[ 'id' ]       = self.name
+    end
+    super( self_xml_node )
+    if ! self.css_class
+      self.css_class              = self.parent_data_object.class
+      self_xml_node[ 'class' ]    = self.css_class.to_s
+    end
+    if self.autoset_form_action( self_xml_node.frame )
+      self_xml_node[ 'action' ]       = self.action
+    end
+  end
+
+  #########################
+  #  process_by_retrieve  #
+  #########################
+
+  def process_by_retrieve( true_or_false )
+    return ! @process_by_create
+  end
+    
+  def process_by_retrieve=( true_or_false )
+    @process_by_create    = ! true_or_false
+  end
+
+  ######################
+  #  has_error?  #
+  ######################
+    
+  def has_error?
+    return self.has_error
+  end
+  
+  #####################
+  #  data_has_error?  #
+  #####################
+    
+  def data_has_error?( params )
+    
+    self.has_error = false
+    
+    which_child = 0
+    self.children.each do |this_child|
+      which_child += 1
+
+      # check data for errors (required, etc.)
+      if this_child.respond_to?( :has_error? )
+        if this_child.data_has_error?( params )
+          self.has_error      = true
+        end
+      else
+        raise ArgumentError, 'Child #' + which_child.to_s + ' ("' + this_child.name.to_s + '", ' + this_child.class.to_s + ') of element "' + self.name.to_s + '" (' + self.class.to_s + ') does not respond to method "' + :has_error?.to_s + '".'
+      end
+    end
+    
+    return self.has_error
+    
+  end
+  
+  ##################
+  #  verify_login  #
+  ##################
+
+  def inputs_with_error
+    inputs_with_error_array = Array.new
+    self.children.each do |this_child|
+      if this_child.has_error?
+        inputs_with_error_array.push( this_child )
+      end
+    end
+    return inputs_with_error_array
+  end
+
+  ##################
+  #  verify_login  #
+  ##################
+    
+  def verify_login( params )
+
+    # Check if user has to be logged in for this form
+    
+    # If user is not logged in and login is required, redirect to login
+        
+  end
+  
+  #####################
+  #  verify_security  #
+  #####################
+    
+  def verify_security( params )
+    
+    # Security Step 2:
+    # Verify privileges for edits
+    # 1. Get user object
+    # 2. Verify user vs. object owner(s)/group(s) of instance
+
+  end
+
+  ##########################
+  #  verify_user_security  #
+  ##########################
+    
+  # privileges by user
+  def verify_user_security
+    
+  end
+  
+  ###########################
+  #  verify_group_security  #
+  ###########################
+  
+  # privileges by group
+  def verify_group_security
+    
+  end
+  
+  ##############################
+  #  verify_uberuser_security  #
+  ##############################
+  
+  # privilege override for administrators
+  # overrides are relative, so we use "uberuser" instead of "superuser"
+  # this allows adminitrators of ranges of users as well as administrators of administrators
+  def verify_uberuser_security
+    
+  end
+    
+  #############
+  #  process  #
+  #############
+    
+  def process_data( params )
+    
+    klass = self.parent_view.for_class
+
+    # walk the element tree to check for any required elements and pull out all values that are posted for expected elements
+    which_child = 0
+    self.children.each do |this_child|
+      which_child += 1
+
+      # Pass processing to object instance
+      if this_child.respond_to?( :process_data )
+        this_child.process_data( params )
+      else
+        raise ArgumentError, 'Child #' + which_child.to_s + ' ("' + this_child.name.to_s + '", ' + this_child.class.to_s + ') of element "' + self.name.to_s + '" (' + self.class.to_s + ') does not respond to method "' + :process_data.to_s + '".'
+      end
+
+    end
+
+  end
+  
+end

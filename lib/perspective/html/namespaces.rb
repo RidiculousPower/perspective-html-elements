@@ -24,6 +24,8 @@ module ::Perspective::HTML::Elements
 	class Table
 	  class Row
     end
+	  class HeaderRow < ::Perspective::HTML::Elements::Table::Row
+    end
   end
 	class Head
 	  class Base
@@ -49,15 +51,15 @@ module ::Perspective::HTML::Elements
       end
 	    class ColorInput
       end
-	    class DataListInput
+	    class DatalistInput
       end
 	    class DateInput
       end
-	    class DateTimeInput
+	    class DatetimeInput
       end
 	    class EmailInput
       end
-	    class FileUploadInput
+	    class FileInput
       end
 	    class HiddenInput
       end
@@ -75,7 +77,7 @@ module ::Perspective::HTML::Elements
       end
 	    class RangeInput
       end
-	    class ResetInput
+	    class ResetButton
       end
 	    class SearchInput
       end

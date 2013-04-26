@@ -6,6 +6,6 @@ class ::Perspective::HTML::Elements::HR
 
   self.«container_tag» = :hr
   
-  attr_order [ ]
+  attr_order # empty
   
 end

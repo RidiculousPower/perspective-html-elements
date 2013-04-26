@@ -2,7 +2,7 @@
 
 require_relative '../../../../../../../lib/perspective/html/elements.rb'
 
-describe ::Perspective::HTML::Elements::Form::Input::TextInput::TextAreaInput do
+describe ::Perspective::HTML::Elements::Form::Input::TextInput::TextareaInput do
 
   ##################
   #  to_html_node  #
@@ -10,7 +10,7 @@ describe ::Perspective::HTML::Elements::Form::Input::TextInput::TextAreaInput do
 
   it 'will render an HTML TEXTAREA tag(<text_area ...>)' do
 
-    text_area = ::Perspective::HTML::Elements::Form::Input::TextInput::TextAreaInput.new
+    text_area = ::Perspective::HTML::Elements::Form::Input::TextInput::TextareaInput.new
 
     text_area.name = :some_text_area
     

@@ -10,7 +10,7 @@ module ::Perspective::HTML::Elements::Head::Title::TitleInterface
   
   attr_autobind :content
 
-  attr_order [ ]
+  attr_order # empty
   
   ##################
   #  to_html_node  #

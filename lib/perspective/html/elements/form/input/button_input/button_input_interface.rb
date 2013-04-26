@@ -5,7 +5,7 @@ module ::Perspective::HTML::Elements::Form::Input::ButtonInput::ButtonInputInter
   include ::Perspective::HTML::Elements::Form::Input
 
   attr_autobind :value
-  attr_order [ ]
+  attr_order # empty
 
   ##################
   #  to_html_node  #

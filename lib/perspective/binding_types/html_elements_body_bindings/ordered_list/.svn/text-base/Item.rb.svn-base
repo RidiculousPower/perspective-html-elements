@@ -1,0 +1,42 @@
+class RPHTML::Element::List::Item
+  include RPHTML::Abstract::Element  
+  
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "li"
+
+  # * define_link( klass, :view, ViewMode = Show )
+  #
+  # view modes are:
+  # * Show (this value or unique key/value)
+  # * Edit (this value or unique key/value)
+  # * Delete (this value or unique key/value)
+  # * Create (this value or unique key/value)
+  # * ShowList (this partial value or non-unique key/value)
+  # * EditList (this partial value or non-unique key/value)
+  # * DeleteList (this partial value or non-unique key/value)
+  # * CreateList (this partial value or non-unique key/value)
+  def define_link( *args )
+    
+    
+    
+  end
+  
+  # * define_link( 'absolute or relative url' )
+  # * define_link( *link_strings_or_methods_to_concat )
+  def define_link_string( *strings_or_symbols )
+    strings_or_symbols.each do |this_part|
+      if this_part.class == Symbol
+        if self.parent_data_object
+          
+        end
+      else
+
+      end
+    end
+  end
+  
+end

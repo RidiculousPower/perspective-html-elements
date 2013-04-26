@@ -2,7 +2,7 @@
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
-describe ::Perspective::HTML::Elements::Table::Row::Header do
+describe ::Perspective::HTML::Elements::Table::HeaderRow::HeaderData do
 
   ##################
   #  to_html_node  #
@@ -10,7 +10,7 @@ describe ::Perspective::HTML::Elements::Table::Row::Header do
 
   it 'will render an HTML LINK tag(<td ...>)' do
 
-    table_data_header = ::Perspective::HTML::Elements::Table::Row::Header.new
+    table_data_header = ::Perspective::HTML::Elements::Table::HeaderRow::HeaderData.new
 
     table_data_header_content = 'Example!'
 

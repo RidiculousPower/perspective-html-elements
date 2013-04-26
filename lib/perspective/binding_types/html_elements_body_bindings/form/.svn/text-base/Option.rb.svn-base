@@ -1,0 +1,10 @@
+class RPHTML::Element::Form::Option < RPHTML::Abstract::Input
+
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "option"
+  
+end

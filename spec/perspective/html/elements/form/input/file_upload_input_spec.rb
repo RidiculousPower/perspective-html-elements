@@ -2,7 +2,7 @@
 
 require_relative '../../../../../../lib/perspective/html/elements.rb'
 
-describe ::Perspective::HTML::Elements::Form::Input::FileUploadInput do
+describe ::Perspective::HTML::Elements::Form::Input::FileInput do
 
 
   ##################
@@ -11,7 +11,7 @@ describe ::Perspective::HTML::Elements::Form::Input::FileUploadInput do
 
   it 'will render an HTML file_upload tag (<input type="file">)' do
 
-    file_upload = ::Perspective::HTML::Elements::Form::Input::FileUploadInput.new
+    file_upload = ::Perspective::HTML::Elements::Form::Input::FileInput.new
 
     file_upload.name = :some_file_upload
 

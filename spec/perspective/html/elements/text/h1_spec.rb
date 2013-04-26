@@ -2,15 +2,15 @@
 
 require_relative '../../../../../lib/perspective/html/elements.rb'
 
-describe ::Perspective::HTML::Elements::Text::H1 do
+describe ::Perspective::HTML::Elements::Text::Header1 do
 
   ##################
   #  to_html_node  #
   ##################
 
-  it 'will render an HTML H1 tag(<h1 ...>)' do
+  it 'will render an HTML Header1 tag(<h1 ...>)' do
 
-    h1 = ::Perspective::HTML::Elements::Text::H1.new
+    h1 = ::Perspective::HTML::Elements::Text::Header1.new
 
     h1_content = 'Example!'
 

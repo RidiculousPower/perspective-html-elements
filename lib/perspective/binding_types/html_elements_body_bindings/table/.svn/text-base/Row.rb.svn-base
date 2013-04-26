@@ -1,0 +1,11 @@
+class RPHTML::TR
+  include RPHTML::Abstract::Element  
+  
+  ###############
+  #  Constants  #
+  ###############
+
+  # Default tag or container tag
+  Tag           = "tr"
+
+end
