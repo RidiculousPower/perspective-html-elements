@@ -10,7 +10,7 @@ describe ::Perspective::HTML::Elements::Form do
 
   it 'will render an HTML FORM tag (<form>)' do
 
-    ::Perspective::BindingTypes::HTMLBindings.define_binding_methods( :URI )
+    ::Perspective::BindingTypes::HTMLViewBindings.define_binding_methods( :URI )
     form = ::Perspective::HTML::Elements::Form.new
 
     form_action = 'http:://example.com'

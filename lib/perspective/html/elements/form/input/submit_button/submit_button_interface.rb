@@ -5,7 +5,7 @@ module ::Perspective::HTML::Elements::Form::Input::SubmitButton::SubmitButtonInt
   include ::Perspective::HTML::Elements::Form::Input
 
   #attr_uri     :image
-  
+
   attr_number  :height, :width
   
   attr_alias   :button_text, :value

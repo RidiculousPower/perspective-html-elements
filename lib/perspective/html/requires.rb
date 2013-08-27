@@ -116,9 +116,11 @@
   
   'elements/html/html_interface',
   'elements/html',
-  
+
   '../binding_types/html_elements_html',
   '../binding_types/html_elements_html_bindings',
+  '../binding_types/html_elements_html_bindings/class_binding_class',
+  '../binding_types/html_elements_html_bindings/class_binding_class_and_binding',
   '../binding_types/html_elements_html_bindings/class_binding',
   '../binding_types/html_elements_html_bindings/instance_binding',
   '../binding_types/html_elements_html_bindings/head/class_binding',
@@ -134,7 +136,7 @@
   '../binding_types/html_elements_head_bindings/script/class_binding',
   '../binding_types/html_elements_head_bindings/style/class_binding',
   '../binding_types/html_elements_head_bindings/title/class_binding',
-
+  
   '../binding_types/html_elements_body',
   '../binding_types/html_elements_body_bindings',
   '../binding_types/html_elements_body_bindings/class_binding',
